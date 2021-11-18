@@ -17,13 +17,18 @@ Requirements
 
 Pretraining
 -----------
+Please refer following repositories for original codes.
 
-To finetune ELSA or ELSA++ on CIFAR-10, try the following commands.
+simCLR: https://github.com/google-research/simclr
+
+CSI: https://github.com/alinlab/CSI
+
+To pretrain simCLR or CSI on CIFAR-10, try the following commands.
 ```
 cd elsa_finetune
 ```
 
-### ELSA
+### simCLR (ELSA)
 ```
 python train.py --dataset cifar10 --model resnet18 \
 --mode simclr --one_class_idx 0 --ratio_pollution 0.1 \
@@ -32,7 +37,7 @@ python train.py --dataset cifar10 --model resnet18 \
 mv ./logs0/cifar10_resnet18_unsup_simclr_one_class_0 pretrained_result
 ```
   
-### ELSA++
+### CSI (ELSA++)
 ```
 python train.py --dataset cifar10 --model resnet18 \
 --mode simclr_CSI --one_class_idx 0 --ratio_pollution 0.1 \
@@ -64,3 +69,7 @@ python ELSA.py --save_dir ./ --load_path ./pretrained_result/last.model \
 --ratio_known_normal 0.1 --ratio_known_outlier 0.1 --ratio_pollution 0.1 \
  --batch_size 64 --n_cluster 50 --optimizer adam --lr 1e-4 --weight_decay 0.0 --n_epochs 50
 ```
+
+License
+-------
+Distributed under the MIT License. See LICENSE.txt for more information.
