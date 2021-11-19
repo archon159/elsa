@@ -11,6 +11,7 @@ Requirements
 * CUDA == 10.1
 * scikit-learn == 0.23.2
 * tensorboard == 2.4.0
+* tensorboardX == 2.4
 * torchlars == 0.1.2
 * diffdist == 0.1
 * soyclustering == 0.2.0
@@ -32,7 +33,7 @@ cd elsa_finetune
 ```
 python train.py --dataset cifar10 --model resnet18 \
 --mode simclr --one_class_idx 0 --ratio_pollution 0.1 \
---batch_Size 512 --epochs 1000 --single_device 0
+--batch_size 512 --epochs 1000 --single_device 0
 
 mv ./logs0/cifar10_resnet18_unsup_simclr_one_class_0 pretrained_result
 ```
@@ -41,7 +42,7 @@ mv ./logs0/cifar10_resnet18_unsup_simclr_one_class_0 pretrained_result
 ```
 python train.py --dataset cifar10 --model resnet18 \
 --mode simclr_CSI --one_class_idx 0 --ratio_pollution 0.1 \
---batch_Size 128 --epochs 1000 --shift_trans_type rotation --single_device 0
+--batch_size 128 --epochs 1000 --shift_trans_type rotation --single_device 0
 
 mv ./logs0/cifar10_resnet18_unsup_simclr_CSI_shift_rotation_one_class_0 pretrained_result
 ```
