@@ -35,7 +35,7 @@ python train.py --dataset cifar10 --model resnet18 \
 --mode simclr --one_class_idx 0 --ratio_pollution 0.1 \
 --batch_size 512 --epochs 1000 --single_device 0
 
-mv ./logs0/cifar10_resnet18_unsup_simclr_one_class_0 pretrained_result
+mv ./logs0/cifar10_resnet18_unsup_simclr_one_class_0 ../pretrained_result
 ```
   
 ### CSI (ELSA++)
@@ -44,7 +44,7 @@ python train.py --dataset cifar10 --model resnet18 \
 --mode simclr_CSI --one_class_idx 0 --ratio_pollution 0.1 \
 --batch_size 128 --epochs 1000 --shift_trans_type rotation --single_device 0
 
-mv ./logs0/cifar10_resnet18_unsup_simclr_CSI_shift_rotation_one_class_0 pretrained_result
+mv ./logs0/cifar10_resnet18_unsup_simclr_CSI_shift_rotation_one_class_0 ../pretrained_result
 ```
 
   
@@ -57,7 +57,7 @@ To pretrain the model on CIFAR-10, try the following commands.
 
 ### ELSA
 ```
-python ELSA.py --save_dir ./ --load_path ./pretrained_result/last.model \
+python ELSA.py --save_dir ./ --load_path ../pretrained_result/last.model \
 --n_known_outlier 1 --known_normal 0 --known_outlier 1 \
 --ratio_known_normal 0.1 --ratio_known_outlier 0.1 --ratio_pollution 0.1 \
  --batch_size 64 --n_cluster 50 --optimizer adam --lr 1e-4 --weight_decay 0.0 --n_epochs 50
@@ -65,7 +65,7 @@ python ELSA.py --save_dir ./ --load_path ./pretrained_result/last.model \
   
 ### ELSA++
 ```
-python ELSA.py --save_dir ./ --load_path ./pretrained_result/last.model \
+python ELSApp.py --save_dir ./ --load_path ../pretrained_result/last.model \
 --n_known_outlier 1 --known_normal 0 --known_outlier 1 \
 --ratio_known_normal 0.1 --ratio_known_outlier 0.1 --ratio_pollution 0.1 \
  --batch_size 64 --n_cluster 50 --optimizer adam --lr 1e-4 --weight_decay 0.0 --n_epochs 50
